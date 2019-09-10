@@ -18,6 +18,11 @@ def index():
 def static_content(content):
     return render_template(content)
 
+#Comunicacion StateLess / No tiene memoria
+@app.route('/cuantasletras/<nombre>') #Le asigna <nombre> a la variable 'cuantasletras'
+def cuantas_letras(nombre):
+    return str(len(nombre)) #Se retorna un string de la longitud de nombre
+
 @app.route('/users', methods = ['POST'])
 def create_user():
     c =  json.loads(request.form['values'])
@@ -213,3 +218,4 @@ def logout():
 if __name__ == '__main__':
     app.secret_key = ".."
     app.run(debug=True,port=8000, threaded=True, host=('127.0.0.1'))
+
