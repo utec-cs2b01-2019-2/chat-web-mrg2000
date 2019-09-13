@@ -18,10 +18,41 @@ def index():
 def static_content(content):
     return render_template(content)
 
-#Comunicacion StateLess / No tiene memoria
+#Comunicacion StateLess / NO tiene memoria
 @app.route('/cuantasletras/<nombre>') #Le asigna <nombre> a la variable 'cuantasletras'
 def cuantas_letras(nombre):
     return str(len(nombre)) #Se retorna un string de la longitud de nombre
+
+#Comunicacion StateFul / SI tiene memoria
+@app.route('/suma/<numero>') #Le asigna <nombre> a la variable 'cuantasletras'
+def suma(numero):
+
+    if 'suma' not in session:
+        session['suma'] = 0
+
+    suma = session['suma'] #Session es un diccionario diseñado en la libreria Flask
+    suma = suma + int(numero)
+    session['suma'] = suma #Se inserta en el diccionario bajo la clave suma el valor
+    return str(suma)
+    #Se retorna un string con la suma
+
+
+#Login con metodo post
+@app.route('/login' , methods =['POST']) #Como se puede utilizar mas de un metodo, se recibibe un arreglo
+def login():
+    #El metodo crea un diccionario en donde la clave es el nombre del input y el valor es el contenido ingresado
+    username = request.form['user'] #Le asignamos a la variable username lo ingresado en el formulario insertado en el html
+    password = request.form['password']
+
+    if username == 'maor.roizman' and password == 'mrg':
+        session['username'] = username
+        #return "Welcome " + username
+        return render_template('welcome.html')
+    else:
+        return "El usuario " + username + " no esta registrado"
+
+
+
 
 @app.route('/users', methods = ['POST'])
 def create_user():
