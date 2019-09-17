@@ -44,13 +44,19 @@ def login():
     username = request.form['user'] #Le asignamos a la variable username lo ingresado en el formulario insertado en el html
     password = request.form['password']
 
-    if username == 'maor.roizman' and password == 'mrg':
-        session['username'] = username
-        #return "Welcome " + username
-        return render_template('welcome.html')
-    else:
-        return "El usuario " + username + " no esta registrado"
+    db_session = db.getSession(engine)
 
+    user = db_session.query(entities.User).filter(
+        entities.User.username == username
+    ).filter(
+    entities.User.password == password
+    ).first()
+
+    if user != None:
+        session['usuario'] = username
+        return "Welcome "+ username
+    else:
+        return "Sorry "+username+" no esta en la base de datos"
 
 
 
@@ -234,6 +240,17 @@ def authenticate():
     except Exception:
         message = {'message':'Unauthorized'}
         return Response(message, status=401,mimetype='application/json')
+
+@app.route('/usuarios', methods=['GET'])
+def todos_los_usuarios():
+    db_session = db.getSession(engine)
+    users = db_session.query(entities.User)
+    response = ""
+    for user in users:
+        response += user.username + " - " +user.password
+
+    return response
+
 
 @app.route('/current', methods = ['GET'])
 def current_user():
