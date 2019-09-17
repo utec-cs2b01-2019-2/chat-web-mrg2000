@@ -1,0 +1,162 @@
+body{
+    font-family:quicksand;
+}
+
+
+.chat{
+  height: 600px;
+  width: 90%;
+  margin: auto;
+}
+
+.zonaChat{
+  height: 600px;
+  width: 70%;
+  margin: auto;
+  background: #f7efea;
+  float: right;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.zonaContactos{
+  height: 100%;
+  width: 30%;
+  float: left;
+  background: #43425d;
+  top: 20%;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+
+}
+
+.infoCuenta{
+  background: #3d3c57;
+  height: 14%;
+  width: 100%;
+  border-top-left-radius: 5px;
+  text-align: center;
+  color: white;
+}
+
+.infoCuenta img{
+  height: 40px;
+  width: 40px;
+  border-radius: 150px;
+  margin-top: 20px;
+  margin-left: 30%;
+  float: left;
+}
+
+
+.estado{
+  font-size: 10px;
+  position: inherit;
+  margin-top: 20px;
+}
+
+.informacionContacto{
+  height: 62px;
+  width: 100%;
+  border-bottom: 1px black solid;
+  text-align: center;
+}
+
+.informacionContacto div{
+  margin-top: 10px;
+}
+
+.escritura{
+  text-align: center;
+  position: static;
+}
+
+.box{
+height: 37px;
+margin-left: 5%;
+border-radius: 5px;
+
+}
+
+#enviar{
+float: right;
+color: blue;
+width: 100px;
+height: 42px;
+cursor: pointer;
+margin-right: 60px;
+}
+
+
+
+
+#texto{
+float: left;
+width: 550px;
+}
+
+
+
+.contacto{
+  height: 55px;
+  width: 100%;
+  border-top:2px solid;
+  border-bottom:2px solid;
+  border-color: #3d3c57;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.contacto:hover{
+  background: #605f7d;
+}
+
+h3{
+  font-size: 14px;
+  color: white;
+  margin-left: 13px;
+}
+
+
+.foto img{
+  height: 40px;
+  width: 40px;
+  border-radius: 170px;
+  margin-left: 3%;
+  float: left;
+}
+
+
+.zonaMensajes{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: 440px;
+}
+
+.mensaje{
+  height: 60px;
+  width: 500px;
+  padding: 15px;
+  position: relative;
+  margin-left: 17%;
+  background: #ebe5de;
+  margin-top: 25px;
+  border-radius: 7px;
+}
+
+.informacionMensaje{
+  float: right;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.contenido{
+  border: none;
+  padding: 5px;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
