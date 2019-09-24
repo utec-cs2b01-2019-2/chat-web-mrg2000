@@ -54,7 +54,7 @@ def login():
 
     if user != None:
         session['usuario'] = username
-        return "Welcome "+ username
+        return render_template('chat.html')
     else:
         return "Sorry "+username+" no esta en la base de datos"
 
@@ -265,6 +265,65 @@ def current_user():
 def logout():
     session.clear()
     return render_template('login.html')
+
+
+#API de Grupos
+#1. La de crear grupos
+@app.route('/grupos', methods = ['POST'])
+def create_group():
+    c = json.loads(request.data)
+    group = entities.Group(
+        name = c['name']
+    )
+
+    session_db = db.getSession(engine)
+    session_db.add(group)
+    session_db.commit()
+    return 'Created group'
+
+#2. Leer grupos
+@app.route('/grupos/<id>', methods = ['GET'])
+def read_grupos(id):
+    session_db = db.getSession(engine)
+    group = session_db.query(entities.Group).filter(
+        entities.Group.id == id).first()
+    data = json.dumps(group, cls=connector.AlchemyEncoder)
+    return Response(data,status=200, mimetype='application/json')
+
+#3. Mostrar todos los grupos
+@app.route('/grupos', methods = ['GET'])
+def get_all_grupos():
+    session_db= db.getSession(engine)
+    dbResponse = session_db.query(entities.Group)
+    data = dbResponse[:]
+    return Response(json.dumps(data,cls=connector.AlchemyEncoder),mimetype='application/json')
+
+
+#4. Update grupo
+@app.route('/grupos/<id>', methods = ['PUT'])
+def update_grupo(id):
+    session = db.getSession(engine)
+    group = session.query(entities.Group).filter(entities.Group.id == id).first()
+    c = json.loads(request.data)
+    for key in c.keys():
+        setattr(group, key, c[key])
+    session.add(group)
+    session.commit()
+    return 'Updated Group'
+
+
+
+#5. Delete grupo
+@app.route('/grupos/<id>', methods = ['DELETE'])
+def delete_grupo(id):
+    session = db.getSession(engine)
+    group = session.query(entities.Group).filter(entities.Group.id == id).one()
+    session.delete(group)
+    session.commit()
+    return "Deleted Group"
+
+
+
 
 if __name__ == '__main__':
     app.secret_key = ".."
