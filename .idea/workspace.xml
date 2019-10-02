@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16051b00-6d4f-42dd-a100-f5cc678983a2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/web/static/css/libs/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/static/js/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/static/js/libs/jquery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/message.db" beforeDir="false" afterPath="$PROJECT_DIR$/web/message.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/static/css/bootstrap.min.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/static/css/estilos-chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/css/estilos-chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +35,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/static/css/libs" />
+      <recent name="$PROJECT_DIR$/web/static/js/libs" />
+      <recent name="$PROJECT_DIR$/web/static/js" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -86,6 +98,7 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
