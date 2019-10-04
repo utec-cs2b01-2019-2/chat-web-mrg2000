@@ -1,20 +1,5 @@
-function get_users(){
-    console.log("Trayendo usuarios");
-
-    $.getJSON("/users", function(data){
-    var i=0;
-
-    $.each(data, function(){
-    user_to = data[i]['id'];
-    e = '<td>'+data[i]['id']+'</td><td>'+data[i]['name']+'</td><td>'+data[i]['fullname']+'</td><td>'+data[i]['password']+'</td><td>'+data[i]['username']+'</td>'
-    i = i+1;
-    $("<tr>",{html:e}).appendTo("#tabla");
-    });
-    });
-}
-
-function get_usersDevExtream(){
-    var url = "http://127.0.0.1:8000/users";
+function get_messagesDevExtream(){
+    var url = "http://127.0.0.1:8000/messages";
      $("#grid").dxDataGrid({
          dataSource: DevExpress.data.AspNet.createStore({
              key: "id",
@@ -52,14 +37,19 @@ function get_usersDevExtream(){
              dataType: "number",
              allowEditing: false
          }, {
-             dataField: "username"
+             dataField: "content"
          }, {
-             dataField: "name"
+             dataField: "sent_on",
+             allowEditing: false
          }, {
-             dataField: "fullname"
+             dataField: "user_from_id"
          }, {
-             dataField: "password"
-         } ]
+             dataField: "user_from"
+         },{
+             dataField: "user_to_id"
+         },{
+             dataField: "user_to"
+         }]
      }).dxDataGrid("instance");
 
 
