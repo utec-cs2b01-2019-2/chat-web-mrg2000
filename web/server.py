@@ -54,6 +54,7 @@ def login():
 
     if user != None:
         session['usuario'] = username
+        session['logged_user'] = user.id
         return render_template('chat.html')
     else:
         return "Sorry "+username+" no esta en la base de datos"

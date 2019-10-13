@@ -42,41 +42,13 @@
 		</div>
 		<div id="contacts">
 			<ul id ="users">
-				<li class="contact">
-					<div class="wrap">
-						<span class="contact-status online"></span>
-						<img src="static/images/hombre.png" alt="" />
-						<div class="meta">
-							<p class="name">Louis Litt</p>
-							<p class="preview">You just got LITT up, Mike.</p>
-						</div>
-					</div>
-				</li>
-				<li class="contact active">
-					<div class="wrap">
-						<span class="contact-status busy"></span>
-						<img src="static/images/hombre.png" alt="" />
-						<div class="meta">
-							<p class="name">Harvey Specter</p>
-							<p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
-						</div>
-					</div>
-				</li>
-				<li class="contact">
-					<div class="wrap">
-						<span class="contact-status away"></span>
-						<img src="static/images/hombre.png" alt="" />
-						<div class="meta">
-							<p class="name">Rachel Zane</p>
-							<p class="preview">I was thinking that we could have chicken tonight, sounds good?</p>
-						</div>
-					</div>
-				</li>
+
+
 
 			</ul>
 		</div>
 		<div id="bottom-bar">
-			<button id="addcontact" onclick="get_all_users()"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar Contactos</span></button>
+			<button id="addcontact" onclick="get_current_user()"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar Contactos</span></button>
 			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
 		</div>
 	</div>
@@ -90,7 +62,7 @@
 				 <i class="fa fa-instagram" aria-hidden="true"></i>
 			</div>
 		</div>
-		<div class="messages">
+		<div id="messages" class="messages">
 			<ul id="mensajes">
 				<li class="sent">
 					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
@@ -106,7 +78,7 @@
 			<div class="wrap">
 			<input type="text" placeholder="Write your message..." />
 			<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-			<button class="submit" onclick="get_all_messages()">Traer Mensajes</button> <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->
+			<button class="submit" onclick="send()">Enviar</button> <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->
 			</div>
 		</div>
 	</div>
