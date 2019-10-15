@@ -44,7 +44,18 @@ function get_messagesDevExtream(){
          }, {
              dataField: "user_from_id"
          }, {
-             dataField: "user_from"
+             dataField: "user_from.username",
+             caption: "User from",
+             lookup: {
+             dataSource: DevExpress.data.AspNet.createStore({
+             key: "id",
+             loadUrl: "http://127.0.0.1:8000/users",
+             onBeforeSend: function(method, ajaxOptions){
+                ajaxOptions.xhrFields = {withCredentials: true};
+             }
+             }),
+                displayExpr: "username"
+             }
          },{
              dataField: "user_to_id"
          },{
@@ -52,6 +63,6 @@ function get_messagesDevExtream(){
          }]
      }).dxDataGrid("instance");
 
-
-
 }
+
+

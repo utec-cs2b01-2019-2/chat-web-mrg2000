@@ -160,6 +160,20 @@ def create_message():
     session.commit()
     return 'Created Message'
 
+@app.route('/messagesjson', methods = ['POST'])
+def create_messagejson():
+    c = json.loads(request.data)
+    message = entities.Message(
+        content=c['content'],
+        sent_on=datetime.datetime(2000,2,2),
+        user_from_id=c['user_from_id'],
+        user_to_id=c['user_to_id']
+    )
+    session = db.getSession(engine)
+    session.add(message)
+    session.commit()
+    return 'Created Message'
+
 @app.route('/messages/<id>', methods = ['GET'])
 def get_message(id):
     db_session = db.getSession(engine)
