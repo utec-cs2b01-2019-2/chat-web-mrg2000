@@ -47,7 +47,7 @@ function load_user_messages(user_to_id,user_from_id){
     $("#messages").empty();
     $("#boton").empty();
     header_chat(user_to_id);
-    boton = '<button class="submit" onclick="send_messages('+user_from_id+','+user_to_id+')">Enviar</button> <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->'
+    boton = '<button id="enviar" class="submit" onclick="send_messages('+user_from_id+','+user_to_id+')">Enviar</button> <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->'
     $("#boton").append(boton);
     var url = "/messages/"+user_from_id+"/"+user_to_id;
     $.getJSON(url,function(data){
@@ -91,6 +91,7 @@ function info_user(){
     i = i+1;
     $("#nombre_usuario").append(e);
     });
+    get_current_user();
 }
 
 
@@ -125,3 +126,22 @@ $.getJSON("/users/"+user_id, function(data){
     $("#header_chat").append(e);
     });
 }
+
+
+function cerrar_sesion(){
+    $.ajax({
+  type: "GET",
+  url: "/logout",
+  data: {}
+}).done(function() {
+   window.location = "/static/login.html";
+});
+}
+
+
+$(document).ready(function(){
+    $("#text-input").keypress(function(e){
+      if(e.keyCode==13)
+      $('#enviar').click();
+    });
+});
