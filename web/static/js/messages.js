@@ -1,5 +1,5 @@
 function get_messagesDevExtream(){
-    var url = "http://127.0.0.1:8000/messages";
+    var url = "/messages";
      $("#grid").dxDataGrid({
          dataSource: DevExpress.data.AspNet.createStore({
              key: "id",
