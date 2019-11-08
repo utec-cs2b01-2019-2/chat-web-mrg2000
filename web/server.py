@@ -362,5 +362,5 @@ def delete_grupo(id):
 
 
 if __name__ == '__main__':
-    app.secret_key = ".."
+    app.secret_key = "dfdfsdfsdfsdfsdf"
     app.run(debug=True,port=80, threaded=True, use_reloader=False)
