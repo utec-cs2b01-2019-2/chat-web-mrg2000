@@ -9,6 +9,7 @@ db = connector.Manager()
 engine = db.createEngine()
 
 app = Flask(__name__)
+app.secret_key = ".."
 
 @app.route('/')
 def index():
@@ -361,5 +362,4 @@ def delete_grupo(id):
 
 
 if __name__ == '__main__':
-    app.secret_key = ".."
     app.run(debug=True,port=80, threaded=True, use_reloader=False)
